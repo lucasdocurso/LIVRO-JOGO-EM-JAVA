@@ -13,7 +13,8 @@ public class App{
     public static void main(String[] args) {
         System.out.println("Qual o nome do seu personagem?");
         String nome = scanner.nextLine();
-        System.out.println("Olá, " + nome + "! Você se prepara para entrar no Coliseu!");
+        System.out.println("No coracao de Roma, sob o calor abrasante do sol," + nome +", um gladiador veterano, estava em silencio em sua cela. O som da multidao ao longe ecoava, crescendo a cada momento que se aproximava da grande batalha. A arena do Coliseu estava prestes a se encher com milhares de espectadores famintos por sangue e emocao.\n" +
+"");
 
         System.out.println("Escolha sua classe: ");
         System.out.println("1. Rei Barbaro");
@@ -37,9 +38,8 @@ public class App{
                 return;
         }
 
-        System.out.println("Voce está indo para o Coliseu enfrentar um heroi!");
-        System.out.println("Escolha: ");
-        System.out.println("1. Entrar no Coliseu");
+        System.out.println(nome + ",voce tem duas opcoes:");
+        System.out.println("1: enfrentar heroi");
         System.out.println("2. Ir embora");
 
         int escolha = scanner.nextInt();
@@ -57,6 +57,7 @@ public class App{
             System.out.println("\nStatus do personagem:");
             System.out.println("Vida: " + jogador.getVida() + " Forca: " + jogador.getForca() + " Mana: " + jogador.getMana());
             System.out.println("\nO inimigo esta pronto para o combate!");
+            System.out.println("Voce esta frente a frente com seu inimigo!");
 
             System.out.println("Escolha uma acao:");
             System.out.println("1. Atacar");
@@ -96,7 +97,3 @@ public class App{
         }
     }
 }
-
-
- 
-
