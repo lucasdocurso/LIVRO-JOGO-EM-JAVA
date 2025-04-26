@@ -1,0 +1,66 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class ClinicView extends JFrame {
+    private JTextField doctorField;
+    private JTextField placeField;
+    private JTextField dateField;
+    private JButton submitButton;
+
+    public ClinicView(ClinicController controller) {
+        setTitle("Schedule Appointment");
+        setSize(400, 250);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(null);
+
+        JLabel doctorLabel = new JLabel("Doctor:");
+        doctorLabel.setBounds(20, 20, 100, 25);
+        add(doctorLabel);
+
+        doctorField = new JTextField();
+        doctorField.setBounds(120, 20, 200, 25);
+        add(doctorField);
+
+        JLabel placeLabel = new JLabel("Place:");
+        placeLabel.setBounds(20, 60, 100, 25);
+        add(placeLabel);
+
+        placeField = new JTextField();
+        placeField.setBounds(120, 60, 200, 25);
+        add(placeField);
+
+        JLabel dateLabel = new JLabel("Date:");
+        dateLabel.setBounds(20, 100, 100, 25);
+        add(dateLabel);
+
+        dateField = new JTextField();
+        dateField.setBounds(120, 100, 200, 25);
+        add(dateField);
+
+        submitButton = new JButton("Schedule");
+        submitButton.setBounds(120, 150, 150, 30);
+        add(submitButton);
+
+        submitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String doctor = doctorField.getText();
+                String query = queryField.getText();
+                String date = dateField.getText();
+
+                boolean success = controller.addClinic(doctor, query, date);
+                if (success) {
+                    JOptionPane.showMessageDialog(null, "Appointment scheduled successfully!");
+                    doctorField.setText("");
+                    placeField.setText("");
+                    dateField.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Failed to schedule appointment.");
+                }
+            }
+        });
+
+        setVisible(true);
+    }
+} 
